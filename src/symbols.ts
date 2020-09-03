@@ -1,1 +1,1 @@
-export const ConfigSymbol = Symbol.for('Config');
+export const ConfigSymbol = Symbol.for('IConfig');
