@@ -1,11 +1,11 @@
 import _ from '@viatsyshyn/ts-model-reader';
 import { ConfigError } from './errors';
-import { IConfig, IConfigDriver } from './interfaces';
+import { IConfig, ConfigDriver } from './interfaces';
 
 type Class = new (...args: any) => any;
 
 export class Config implements IConfig {
-  constructor(private driver: IConfigDriver = require('config')) {
+  constructor(private driver: ConfigDriver = require('config')) {
   }
 
   public has(path: string): boolean {
@@ -36,7 +36,16 @@ export class Config implements IConfig {
   get<T extends Class>(path: string, Model: T, nullable: true): InstanceType<T> | null;
   get<T extends Class>(path: string, Model: [T], nullable?: false): ReadonlyArray<InstanceType<T>>;
   get<T extends Class>(path: string, Model: [T], nullable: true): ReadonlyArray<InstanceType<T>> | null;
-  public get<T extends Class>(path: string, Model: any = Object, nullable = false): any {
+  /* all */
+  get<T extends Class>(Model: T): InstanceType<T>;
+  /* impl */
+  public get<T extends Class>(...args: any[]): any {
+    if (args.length === 1) {
+      const [Model] = args;
+      return _(this.driver, Model, 'config', true);
+    }
+    const [path, Model, nullable] = args;
+
     const exists = this.has(path);
     if (nullable && !exists) {
       return null;

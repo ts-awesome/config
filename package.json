@@ -11,7 +11,9 @@
   },
   "author": "Volodymyr Iatsyshyn <viatsyshyn@gmail.com>",
   "license": "ISC",
-  "peerDependencies": {},
+  "peerDependencies": {
+    "config": "^3.0.0"
+  },
   "dependencies": {
     "reflect-metadata": "^0.1.13",
     "@viatsyshyn/ts-model-reader": "~0.1.9"
@@ -21,6 +23,7 @@
     "@types/reflect-metadata": "^0.1.0",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
+    "config": "^3.3.1",
     "eslint": "^6.8.0",
     "typescript": "^3.9.7"
   }

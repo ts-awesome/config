@@ -1,4 +1,6 @@
-export interface IConfigDriver {
+export type ConfigDriver = {
+  [key: string]: string | number | boolean;
+} & {
   has(path: string): boolean;
   get<T>(path: string): T;
 }
@@ -10,7 +12,7 @@ export interface IConfig {
   /**
    * @deprecated
    */
-  get<T>(path: string): T;
+  get<T=unknown>(path: string): T;
   /* string*/
   get(path: string, Model: typeof String, nullable?: false): string;
   get(path: string, Model: typeof String, nullable: true): string | null;
@@ -31,4 +33,7 @@ export interface IConfig {
   get<T extends Class>(path: string, Model: T, nullable: true): InstanceType<T> | null;
   get<T extends Class>(path: string, Model: [T], nullable?: false): ReadonlyArray<InstanceType<T>>;
   get<T extends Class>(path: string, Model: [T], nullable: true): ReadonlyArray<InstanceType<T>> | null;
+
+  /* all*/
+  get<T extends Class>(Model: T): InstanceType<T>;
 }
