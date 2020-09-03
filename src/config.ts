@@ -41,8 +41,11 @@ export class Config implements IConfig {
   /* impl */
   public get<T extends Class>(...args: any[]): any {
     if (args.length === 1) {
-      const [Model] = args;
-      return _(this.driver, Model, 'config', true);
+      const [arg] = args;
+      if (typeof arg === 'string') {
+        this.driver.get(arg);
+      }
+      return _(this.driver, arg, 'config', true);
     }
     const [path, Model, nullable] = args;
 
@@ -55,12 +58,8 @@ export class Config implements IConfig {
     }
     try {
       const value = this.driver.get<unknown>(path);
-      if (Model == null) {
-        return value;
-      } else {
-        // required cast due to overload resolution in TS
-        return _<T>(value, Model, path, !nullable as true);
-      }
+      // required cast due to overload resolution in TS
+      return _<T>(value, Model, path, !nullable as true);
     } catch (e) {
       throw new ConfigError(e.message);
     }
