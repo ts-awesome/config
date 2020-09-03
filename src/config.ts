@@ -43,7 +43,7 @@ export class Config implements IConfig {
     if (args.length === 1) {
       const [arg] = args;
       if (typeof arg === 'string') {
-        this.driver.get(arg);
+        return this.driver.get(arg);
       }
       return _(this.driver, arg, 'config', true);
     }
