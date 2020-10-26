@@ -83,5 +83,5 @@
       }
     ]
   },
-  "exclude": ["./bin", "./dist", "./node_modules/**", "./test", "./index.js", "./gulpfile.js", "ecosystem.config.js", "tmp"]
+  "exclude": ["./bin", "./dist", "./node_modules/**", "./index.js", "./gulpfile.js", "ecosystem.config.js", "tmp"]
 }
