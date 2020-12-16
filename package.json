@@ -1,5 +1,5 @@
 {
-  "name": "@viatsyshyn/ts-config",
+  "name": "@ts-awesome/config",
   "version": "0.0.0",
   "description": "Typescript model reader",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\""
   },
   "author": "Volodymyr Iatsyshyn <viatsyshyn@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "config": "^3.0.0"
   },
