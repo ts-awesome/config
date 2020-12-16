@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "reflect-metadata": "^0.1.13",
-    "@viatsyshyn/ts-model-reader": "~0.1.9"
+    "@ts-awesome/model-reader": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^14.6.2",

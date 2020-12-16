@@ -1,4 +1,4 @@
-import _ from '@viatsyshyn/ts-model-reader';
+import _ from '@ts-awesome/model-reader';
 import { ConfigError } from './errors';
 import { IConfig, ConfigDriver } from './interfaces';
 
