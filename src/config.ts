@@ -1,8 +1,8 @@
 import _ from '@ts-awesome/model-reader';
 import { ConfigError } from './errors';
-import { IConfig, ConfigDriver } from './interfaces';
+import type { IConfig, ConfigDriver } from './interfaces';
 
-type Class = new (...args: any) => any;
+type Class<T = any> = new (...args: any) => T;
 
 export class Config implements IConfig {
   constructor(private driver: ConfigDriver = require('config')) {
